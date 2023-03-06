@@ -1,6 +1,7 @@
 /// <reference types="@fastly/js-compute" />
 
 import { includeBytes } from "fastly:experimental";
+import { ConfigStore } from "fastly:config-store";
 
 // Load static files as a Uint8Array at compile time.
 // File path is relative to root of project, not to this file
@@ -9,8 +10,21 @@ const robotsPage = includeBytes("./src/robots.txt");
 
 const handler = async (event) => {
  // get the request from the client
- const req = event.request
- const reqURL = new URL(req.url)
+ const req = event.request;
+ const reqURL = new URL(req.url);
+ const reqPath = reqURL.pathname;
+
+ // Check if there is a redirect for the URL requested.
+ // If there is, redirect the client.
+ const config = new ConfigStore('redirects');
+ const dest = config.get(reqPath);
+
+ if (dest) {
+   return new Response("", {
+     status: 301,
+     headers: { Location: dest },
+   });
+ }
 
  const backendResponse = await fetch(req, {
    backend: "vcl-origin",
