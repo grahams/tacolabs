@@ -14,6 +14,10 @@ const handler = async (event) => {
  const reqURL = new URL(req.url);
  const reqPath = reqURL.pathname;
 
+ // Prepare logs
+ console.log('Request: ' + reqURL);
+ console.log('User-Agent: ' + req.headers.get('User-Agent'));
+
  // Check if there is a redirect for the URL requested.
  // If there is, redirect the client.
  const config = new ConfigStore('redirects');
