@@ -1,5 +1,5 @@
 /// <reference types="@fastly/js-compute" />
-
+import { Logger } from "fastly:logger";
 import { includeBytes } from "fastly:experimental";
 import { ConfigStore } from "fastly:config-store";
 
@@ -15,8 +15,9 @@ const handler = async (event) => {
  const reqPath = reqURL.pathname;
 
  // Prepare logs
- console.log('Request: ' + reqURL);
- console.log('User-Agent: ' + req.headers.get('User-Agent'));
+ const logger = new Logger("tacolog");
+ logger.log('Request: ' + reqURL);
+ logger.log('User-Agent: ' + req.headers.get('User-Agent'));
 
  // Check if there is a redirect for the URL requested.
  // If there is, redirect the client.
