@@ -1,25 +1,17 @@
-# Default Starter Kit for JavaScript
+# Introduction to Compute@Edge 
 
-[![Deploy to Fastly](https://deploy.edgecompute.app/button)](https://deploy.edgecompute.app/deploy)
+This branch contains an iteration of the serverless application for the *Introduction to Compute@Edge* tutorial.
 
-Get to know the Fastly Compute@Edge environment with a basic starter that demonstrates routing, simple synthetic responses and code comments that cover common patterns.
+## How to use this
 
-**For more details about other starter kits for Compute@Edge, see the [Fastly developer hub](https://developer.fastly.com/solutions/starters)**
+Refer to the [branch of the final iteration](https://github.com/fastly/tacolabs/tree/fastly-compute) for complete instructions.
 
-## Features
+We've removed the service ID information from the `fastly.toml` configuration file. If you want to try deploying this application, you'll need to edit the `fastly.toml` to update the author information and add your service ID.
 
-* Allow only requests with particular HTTP methods
-* Match request URL path and methods for routing
-* Build synthetic responses at the edge
+## Security concerns
 
-## Understanding the code
+To report security concerns with this source code or the Taco Labs website, use https://www.fastly.com/security/report-security-issue.
 
-This starter is intentionally lightweight, and requires no dependencies aside from the [`@fastly/js-compute`](https://www.npmjs.com/package/@fastly/js-compute) npm package. It will help you understand the basics of processing requests at the edge using Fastly. This starter includes implementations of common patterns explained in our [using Compute@Edge](https://developer.fastly.com/learning/compute/javascript/) and [VCL migration](https://developer.fastly.com/learning/compute/migrate/) guides.
+## License
 
-The starter doesn't require the use of any backends. Once deployed, you will have a Fastly service running on Compute@Edge that can generate synthetic responses at the edge.
-
-The template uses webpack to bundle `index.js` and its imports into a single JS file, `bin/index.js`, which is then wrapped into a `.wasm` file, `bin/index.wasm` using the `js-compute-runtime` CLI tool bundled with the `@fastly/js-compute` npm package, and bundled into a `.tar.gz` file ready for deployment to Compute@Edge.
-
-## Security issues
-
-Please see our [SECURITY.md](SECURITY.md) for guidance on reporting security-related issues.
+[MIT license](/LICENSE)
