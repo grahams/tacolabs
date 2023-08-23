@@ -51,7 +51,3 @@ Virtually all of the content for this website was lovingly borrowed from https:/
 ## License
 
 [MIT license](/LICENSE)
-
-## Added change
-
-This is an added change trying to fire the action workflow
